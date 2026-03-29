@@ -4,7 +4,7 @@
 <head>
   <title>Калькулятор</title>
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="script.js"></script>
+  <!-- <script type="text/javascript" src="script.js"></script> -->
 </head>
 
 <body>
@@ -23,30 +23,26 @@
       <li><a href="https://github.com/zuskwbfe/PSP_2026" class="nav-link">GitHub</a></li>
     </ul>
 
-      <div class="theme-switcher">
-    <button class="theme-button" id="themeButton">Тема ▾</button>
-    <div class="theme-dropdown" id="themeDropdown">
-      <div class="theme-option light" data-theme="light">Светлая</div>
-      <div class="theme-option dark" data-theme="dark">Тёмная</div>
+    <div class="theme-switcher">
+      <button class="theme-button" id="themeButton">Тема ▾ююююю</button>
+      <div class="theme-dropdown" id="themeDropdown">
+        <div class="theme-option light" data-theme="light">Светлая</div>
+        <div class="theme-option dark" data-theme="dark">Тёмная</div>
+      </div>
     </div>
-  </div>
   </header>
 
 
 
 
-  <div class="calculator"> <!-- div - это базовый html-контейнер, который может содержать в себе другие html-элементы. -->
-
-    <!-- блок с экраном калькулятора, где будет выводиться результат вычислений. -->
+  <div class="calculator">
     <div id="result" class="result">
       0
     </div>
 
-    <!-- блок с кнопками калькулятора. -->
     <div>
-      <!--горизонтальный ряд из четырех кнопок-->
       <div>
-        <button id="btn_op_clear" class="my-btn secondary">C</button>    <!-- про тэг кнопки: https://www.w3schools.com/tags/tag_button.asp -->
+        <button id="btn_op_clear" class="my-btn secondary">C</button>
         <button id="btn_op_sign" class="my-btn secondary">+/-</button>
         <button id="btn_op_percent" class="my-btn secondary">%</button>
         <button id="btn_op_div" class="my-btn primary">/</button>
@@ -80,7 +76,7 @@
       <div>
         <button id="btn_digit_0" class="my-btn">0</button>
         <button id="btn_digit_00" class="my-btn">00</button>
-        <button id="btn_digit_dot" class="my-btn secondary">.</button>
+        <button id="btn_digit_dot" class="my-btn">.</button>
         <button id="btn_op_equal" class="my-btn primary execute">=</button>
       </div>
     </div>
