@@ -50,9 +50,9 @@ function formatResult(value) {
     let num = parseFloat(value);
     if (isNaN(num)) return value;
     if (value <= 10**10) return num;
-
     return num.toPrecision(10);
 }
+
     const outputElement = document.getElementById("result");
     if (!outputElement) return;
 
@@ -76,6 +76,8 @@ function formatResult(value) {
             }
         }
     }
+
+
     digitButtons.forEach(button => {
         button.onclick = function() {
             const digitValue = button.innerHTML;

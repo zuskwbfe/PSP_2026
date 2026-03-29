@@ -29,7 +29,7 @@ body {
   height: 50px;
   border-radius: 12px;
   border: none;
-  background: #6d92d1;
+  background: #005bff;
   color: white;
   font-size: 1.5rem;
   font-weight: 900;
@@ -50,12 +50,12 @@ body {
 
 /* селектор для кнопок первостепенных операций */
 .my-btn.primary {
-  background: #ef6790;
+  background: #f91155;
 }
 
 /* селектор для кнопок второстепенных операций */
 .my-btn.secondary {
-  background: #6ccece;
+  background: #00a6a6;
 }
 
 /* селектор для кнопки расчета выражения (=) */
@@ -93,7 +93,7 @@ body {
     margin-right: 5px;
     margin-top: 5px;
     background: rgb(242, 241, 252);
-    color: rgb(93, 83, 222);
+    color: #005bff;
     border: 0px;
     border-radius: 12px;
     /* font-family: 'SN Pro', Arial, sans-serif; */
