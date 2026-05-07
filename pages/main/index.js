@@ -1,4 +1,6 @@
-import {RequestCardComponent} from "../../components/request-card/index.js";
+import { RequestCardComponent } from "../../components/request-card/index.js";
+import { HeaderComponent } from "../../components/header/index.js";
+import { RequestPage } from "../product/index.js";
 
 export class MainPage {
     constructor(parent) {
@@ -10,14 +12,14 @@ export class MainPage {
     }
 
     getHTML() {
-        return `<div id="main-page" class="d-flex flex-wrap"></div>`;
+        return `<div id="main-page" class="d-flex justify-content-center flex-wrap"></div>`;
     }
 
     getData() {
         return [
             {
                 id: 1,
-                src: "https://placehold.co/300x200?text=Доставка",
+                src: "images/cafe.png",
                 client: "Кофейня «Уголок»",
                 service: "Доставка расходников",
                 manager: "Смирнова О.А.",
@@ -28,7 +30,7 @@ export class MainPage {
             },
             {
                 id: 2,
-                src: "https://placehold.co/300x200?text=Ремонт",
+                src: "images/salon.png",
                 client: "Салон «Локон»",
                 service: "Ремонт оборудования",
                 manager: "Иванова М.П.",
@@ -39,7 +41,7 @@ export class MainPage {
             },
             {
                 id: 3,
-                src: "https://placehold.co/300x200?text=Установка",
+                src: "images/flowers.png",
                 client: "Магазин «Цветы»",
                 service: "Установка кассы",
                 manager: "Козлова Е.В.",
@@ -53,17 +55,22 @@ export class MainPage {
 
     clickCard(e) {
         const cardId = e.currentTarget.dataset.id;
-
-        import("../product/index.js").then(({RequestPage}) => {
+        import("../product/index.js").then(({ RequestPage }) => {
             const requestPage = new RequestPage(this.parent, cardId);
             requestPage.render();
         });
     }
 
+    goHome() {
+        this.render();
+    }
+
     render() {
         this.parent.innerHTML = '';
-        this.parent.insertAdjacentHTML('beforeend', this.getHTML());
 
+        const header = new HeaderComponent(this.parent);
+        header.render(this.goHome.bind(this));
+        this.parent.insertAdjacentHTML('beforeend', this.getHTML());
         const data = this.getData();
         data.forEach((item) => {
             const card = new RequestCardComponent(this.pageRoot);

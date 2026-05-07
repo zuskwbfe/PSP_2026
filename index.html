@@ -4,11 +4,80 @@
     <meta charset="UTF-8">
     <title>Simple App</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<style>
+    @font-face {
+    font-family: 'SN Pro Italic';
+    src: url('fonts/SNPro-BlackItalic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+    }
+    * {
+        font-family: 'SN Pro Italic', Arial, sans-serif;
+    }
+    body {
+        background-color: rgb(245, 247, 250);
+        margin: 0;
+        padding: 0;
+    }
+    .app-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background-color: white;
+    padding: 8px 24px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 24px;
+    }
+    .logo {
+    justify-self: start;
+    width: 139.68px;
+    height: 43.99px;
+    }
+
+    .badge-status-new {
+        background-color: #005bff;
+        color: white;
+    }
+    .badge-status-work {
+        background-color: #00a6a6;
+        color: white;
+    }
+    .badge-status-done {
+         background-color: #f91155;
+        color: white;
+    }
+
+    .nav-menu {
+        justify-self: center;
+        display: flex;
+        gap: 8px;
+    }
+    .nav-link {
+        color: rgb(153, 163, 174);
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        transition: background-color 0.3s;
+    }
+    .nav-link:hover {
+        color: #005bff;
+    }
+    .nav-link.active {
+        background-color: #005bff;
+        color: white;
+    }
+    .nav-link.active:hover {
+        filter: brightness(120%);
+    }
+</style>
 </head>
 <body>
 <div id="root"></div>
 <script src="main.js" type="module"></script>
-
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
