@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "express-tickets-api",
+		"name": "CallCenter Tickets API",
+		"description": "Коллекция для тестирования REST API заявок колл-центра на Express.js",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Получить все заявки",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tickets",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets"]
+				},
+				"description": "Получение всех заявок колл-центра"
+			},
+			"response": []
+		},
+		{
+			"name": "2. Фильтр по статусу",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tickets?status=Новая",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets"],
+					"query": [
+						{
+							"key": "status",
+							"value": "Новая",
+							"description": "Фильтрация по статусу: Новая | В работе | Завершена"
+						}
+					]
+				},
+				"description": "Фильтрация заявок по статусу"
+			},
+			"response": []
+		},
+		{
+			"name": "3. Фильтр по менеджеру",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tickets?manager=Смирнова",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets"],
+					"query": [
+						{
+							"key": "manager",
+							"value": "Смирнова",
+							"description": "Поиск по части фамилии менеджера (регистронезависимый)"
+						}
+					]
+				},
+				"description": "Фильтрация заявок по менеджеру"
+			},
+			"response": []
+		},
+		{
+			"name": "4. Получить заявку по ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tickets/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets", "1"]
+				},
+				"description": "Получение конкретной заявки по ID"
+			},
+			"response": []
+		},
+		{
+			"name": "5. Создать новую заявку",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"client\": \"Барбершоп «Бритва»\",\n  \"service\": \"Настройка Wi-Fi\",\n  \"manager\": \"Смирнова О.А.\",\n  \"executor\": \"Петров И.В.\",\n  \"courier\": \"—\",\n  \"status\": \"Новая\",\n  \"priority\": 2,\n  \"cost\": 1800,\n  \"desc\": \"Настроить роутер и гостевую сеть.\",\n  \"equipment\": \"Роутер TP-Link\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/tickets",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets"]
+				},
+				"description": "Создание новой заявки. ID генерируется автоматически. Обязательные поля: client, service, manager."
+			},
+			"response": []
+		},
+		{
+			"name": "6. Обновить заявку",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"status\": \"В работе\",\n  \"executor\": \"Морозов Д.К.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/tickets/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets", "1"]
+				},
+				"description": "Частичное обновление заявки. Можно передать только изменяемые поля."
+			},
+			"response": []
+		},
+		{
+			"name": "7. Удалить заявку",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tickets/6",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets", "6"]
+				},
+				"description": "Удаление заявки по ID. Возвращает 204 No Content при успехе."
+			},
+			"response": []
+		},
+		{
+			"name": "8. Тест 404 — несуществующая заявка",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tickets/999",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets", "999"]
+				},
+				"description": "Проверка обработки ошибки 404 при запросе несуществующей заявки"
+			},
+			"response": []
+		},
+		{
+			"name": "9. Тест 400 — невалидные данные",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"client\": \"Только клиент\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/tickets",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["tickets"]
+				},
+				"description": "Проверка валидации — создание без обязательных полей должно вернуть 400 Bad Request"
+			},
+			"response": []
+		},
+		{
+			"name": "10. Тест 404 — несуществующий маршрут",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/nonexistent",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["nonexistent"]
+				},
+				"description": "Проверка глобальной обработки 404 для несуществующих маршрутов"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
