@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР №5: Заявки от коллцентра мелкого бизнеса</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        @font-face {
+            font-family: 'SN Pro Italic';
+            src: url('/assets/SNPro-BlackItalic-CUKo4lmb.woff2') format('woff2');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        * {
+            font-family: 'SN Pro Italic', Arial, sans-serif;
+        }
+        body {
+            background-color: rgb(245, 247, 250);
+            margin: 0;
+            padding: 0;
+        }
+        .app-header {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            background-color: white;
+            padding: 8px 24px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+        }
+        .logo {
+            justify-self: start;
+            width: 139.68px;
+            height: 43.99px;
+        }
+        .badge-status-new {
+            background-color: #005bff;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+        .badge-status-work {
+            background-color: #00a6a6;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+        .badge-status-done {
+            background-color: #f91155;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+        .nav-menu {
+            justify-self: center;
+            display: flex;
+            gap: 8px;
+        }
+        .nav-link {
+            color: rgb(153, 163, 174);
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: background-color 0.3s;
+        }
+        .nav-link:hover {
+            color: #005bff;
+        }
+        .nav-link.active {
+            background-color: #005bff;
+            color: white;
+        }
+        .nav-link.active:hover {
+            filter: brightness(120%);
+        }
+
+        .request-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .request-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .card-title { margin: 0; font-size: 1.25rem; font-weight: 700; }
+        .card-id {
+            background: #f0f2f5;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .btn-view, .btn-edit {
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn-view { background: #e9ecef; color: #495057; }
+        .btn-view:hover { background: #dee2e6; }
+        .btn-edit { background: #005bff; color: white; }
+        .btn-edit:hover { filter: brightness(110%); }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            margin-bottom: 16px;
+            background: #f0f2f5;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #374151;
+            transition: all 0.2s;
+        }
+        .back-button:hover { background: #e5e7eb; border-color: #9ca3af; }
+    </style>
+  <script type="module" crossorigin src="/assets/main-ntPaHdAD.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <img src="/assets/logo_ozon_1-CGXHZfG4.png" alt="Логотип" class="logo">
+        <nav class="nav-menu">
+            <a href="#" class="nav-link active">Главная</a>
+            <a href="#add" class="nav-link">Добавить</a>
+        </nav>
+        <div></div>
+    </header>
+
+    <!-- Контейнер для SPA-роутинга -->
+    <div id="root" class="container mt-3"></div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
