@@ -15,6 +15,8 @@ ticketsService.init(DATA_FILE_PATH);
 // 1. Парсинг JSON-тела запроса
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, '../dist')));
+
 // 2. Логирование запросов
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);

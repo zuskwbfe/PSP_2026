@@ -13,7 +13,7 @@ const findAll = ({ status, priority, manager } = {}) => {
     if (status) {
         tickets = tickets.filter(t => t.status === status);
     }
-    if (priority) {
+    if (priority !== undefined) {
         tickets = tickets.filter(t => t.priority === parseInt(priority));
     }
     if (manager) {
@@ -28,7 +28,7 @@ const findAll = ({ status, priority, manager } = {}) => {
 // Получить одну заявку по ID
 const findOne = (id) => {
     const tickets = fileService.readData(dataFilePath);
-    return tickets.find(t => t.id === id) || null;
+    return tickets.find(t => t.id == id) || null;
 };
 
 // Создать новую заявку
@@ -61,9 +61,9 @@ const create = (ticketData) => {
 // Частичное обновление заявки по ID (PATCH)
 const update = (id, ticketData) => {
     const tickets = fileService.readData(dataFilePath);
-    const index = tickets.findIndex(t => t.id === id);
+    const index = tickets.findIndex(t => t.id == id);
 
-    if (index === -1) return null;
+    if (index == -1) return null;
 
     tickets[index] = { ...tickets[index], ...ticketData, id };
     fileService.writeData(dataFilePath, tickets);
@@ -73,7 +73,7 @@ const update = (id, ticketData) => {
 // Удалить заявку по ID
 const remove = (id) => {
     const tickets = fileService.readData(dataFilePath);
-    const filtered = tickets.filter(t => t.id !== id);
+    const filtered = tickets.filter(t => t.id != id);
 
     if (filtered.length === tickets.length) return false;
 
