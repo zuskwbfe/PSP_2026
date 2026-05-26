@@ -283,13 +283,6 @@ app.use('/tickets', ticketsRouter);
 
 ![Форма редактирования](assets/edit-form.png)
 
-Запрос `PATCH /tickets/:id` во вкладке Network:
-
-![PATCH /tickets/:id в Network](assets/patch-ticket-network.png)
-
-### Вкладка Sources — только bundle, исходников нет
-
-![Sources — только bundle](assets/sources-bundle.png)
 
 ## Инструкция по запуску
 
