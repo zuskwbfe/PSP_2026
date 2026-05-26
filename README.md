@@ -271,25 +271,13 @@ app.use('/tickets', ticketsRouter);
 
 ![Главная страница](assets/main-page.png)
 
-Запрос `GET /tickets` во вкладке Network:
-
-![GET /tickets в Network](assets/get-tickets-network.png)
-
 ### Страница просмотра заявки
 
 ![Страница карточки](assets/card-page.png)
 
-Запрос `GET /tickets/:id` во вкладке Network:
-
-![GET /tickets/:id в Network](assets/get-ticket-by-id-network.png)
-
 ### Создание новой заявки
 
-![Форма создания заявки](assets/create-form.png)
-
-Запрос `POST /tickets` во вкладке Network:
-
-![POST /tickets в Network](assets/post-ticket-network.png)
+![Форма создания заявки](assets/edit-page.png)
 
 ### Редактирование заявки
 
