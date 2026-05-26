@@ -5,12 +5,12 @@ export class BackButtonComponent {
         this.button = document.createElement('button');
         this.button.className = 'back-button';
         this.button.textContent = '← Назад';
-        this.button.type = 'button'; // ⚠️ Важно: предотвращает сабмит формы, если кнопка внутри <form>
+        this.button.type = 'button'; // предотвращает сабмит формы, если кнопка внутри <form>
         this.root.appendChild(this.button);
     }
 
     /**
-     * Отрисовывает кнопку и привязывает обработчик клика
+      Отрисовывает кнопку и привязывает обработчик клика
      * @param {Function} callback - Функция, которая вызовется при нажатии
      */
     render(callback) {

@@ -1,26 +1,26 @@
 class StockUrls {
     constructor() {
-        this.baseUrl = 'http://localhost:3000';
+        this.baseUrl = '';  // пустой baseUrl — запросы идут на тот же origin
     }
 
     getStocks() {
-        return `${this.baseUrl}/stocks`;
+        return `${this.baseUrl}/tickets`;
     }
 
     getStockById(id) {
-        return `${this.baseUrl}/stocks/${id}`;
+        return `${this.baseUrl}/tickets/${id}`;
     }
 
     createStock() {
-        return `${this.baseUrl}/stocks`;
+        return `${this.baseUrl}/tickets`;
     }
 
     removeStockById(id) {
-        return `${this.baseUrl}/stocks/${id}`;
+        return `${this.baseUrl}/tickets/${id}`;
     }
 
     updateStockById(id) {
-        return `${this.baseUrl}/stocks/${id}`;
+        return `${this.baseUrl}/tickets/${id}`;
     }
 }
 
