@@ -45,8 +45,8 @@ export class ProductCardComponent {
                 ${desc ? `<p class="card-desc"><strong>Описание:</strong> ${desc}</p>` : ''}
             </div>
             <div class="card-actions">
-                <button type="button" class="btn btn-view" data-id="${id}">👁 Просмотр</button>
-                <button type="button" class="btn btn-edit" data-id="${id}">✏️ Редактировать</button>
+                <button type="button" class="btn btn-view" data-id="${id}">Просмотр</button>
+                <button type="button" class="btn btn-edit" data-id="${id}">Редактировать</button>
             </div>
         `;
 
