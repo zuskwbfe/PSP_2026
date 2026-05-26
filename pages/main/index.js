@@ -12,7 +12,9 @@ export class MainPage {
     }
 
     getHTML() {
-        return `<div id="main-page" class="d-flex justify-content-center flex-wrap"></div>`;
+        return `<div id="main-page" class="container mt-4">
+                    <div class="row" id="cards-row"></div>
+                </div>`;
     }
 
     getData() {
@@ -69,11 +71,13 @@ export class MainPage {
         this.parent.innerHTML = '';
 
         const header = new HeaderComponent(this.parent);
-        header.render(this.goHome.bind(this));
+        header.render({ activeLink: 'requests', onHome: this.goHome.bind(this) });
         this.parent.insertAdjacentHTML('beforeend', this.getHTML());
+
+        const cardsRow = document.getElementById('cards-row');
         const data = this.getData();
         data.forEach((item) => {
-            const card = new RequestCardComponent(this.pageRoot);
+            const card = new RequestCardComponent(cardsRow);
             card.render(item, this.clickCard.bind(this));
         });
     }

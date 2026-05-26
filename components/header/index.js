@@ -12,7 +12,6 @@ export class HeaderComponent {
                 <nav class="nav-menu">
                     <a href="#" class="nav-link ${activeLink === 'home' ? 'active' : ''}" data-nav="home">Главная</a>
                     <a href="#" class="nav-link ${activeLink === 'requests' ? 'active' : ''}" data-nav="requests">Заявки</a>
-                    <a href="hw-test.html" class="nav-link ${activeLink === 'requests' ? 'active' : ''}" data-nav="requests">ДЗ1</a>
                 </nav>
             </header>
         `;
